@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Splat.ApplicationInsights</id>
+    <version>$version$</version>
+    <title>Splat ApplicationInsights</title>
+    <authors>dhgmssolutions dpvreony</authors>
+    <owners>dhgmssolutions dpvreony</owners>
+    <licenseUrl>https://raw.githubusercontent.com/DHGMS-Solutions/splatapplicationinsights/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/DHGMS-Solutions/splatapplicationinsights</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Application Insights integrations for Splat</description>
+    <copyright>Copyright belongs to respective package owners</copyright>
+    <tags>ApplicationInsights Splat</tags>
+    <dependencies>
+      <dependency id="splat" version="1.6.2" />
+      <dependency id="ApplicationInsights" version="1.2.3" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\release\splat.applicationinsights.dll" target="lib\net45" />
+    <file src="license" />
+  </files>
+</package>
