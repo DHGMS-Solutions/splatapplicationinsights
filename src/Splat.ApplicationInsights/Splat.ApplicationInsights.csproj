@@ -38,6 +38,10 @@
       <HintPath>..\packages\Splat.1.6.2\lib\Net45\Splat.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Splat.Contrib, Version=1.0.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Splat.Contrib.1.0.22-dev\lib\net45\Splat.Contrib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationInsightsFeatureUsageTracking.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="ApplicationInsightsSplatLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
