@@ -19,7 +19,7 @@
             this.ParentReference = parentReference;
             this._telemetry = Locator.Current.GetService<TelemetryClient>();
 
-            TrackEvent("Feature Usage Finish");
+            TrackEvent("Feature Usage Start");
         }
 
         public Guid FeatureReference { get; }
@@ -40,11 +40,22 @@
 
         public void OnException(Exception exception)
         {
+            var telemetry = new ExceptionTelemetry(exception);
+            PrepareEventData(telemetry);
+
+            this._telemetry.TrackException(telemetry);
         }
 
         private void TrackEvent(string eventName)
         {
             var eventTelemetry = new EventTelemetry(eventName);
+            PrepareEventData(eventTelemetry);
+
+            this._telemetry.TrackEvent(eventTelemetry);
+        }
+
+        private void PrepareEventData<TTelemetry>(TTelemetry eventTelemetry) where TTelemetry : ISupportProperties
+        {
             eventTelemetry.Properties.Add("Name", FeatureName);
             eventTelemetry.Properties.Add("Reference", FeatureReference.ToString());
 
@@ -52,8 +63,6 @@
             {
                 eventTelemetry.Properties.Add("ParentReference", ParentReference.ToString());
             }
-
-            this._telemetry.TrackEvent(eventTelemetry);
         }
     }
 }
